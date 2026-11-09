@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useRef } from 'react';
 import { 
   PartyPopper, 
   Crown, 
@@ -18,22 +18,87 @@ interface FreshersPartySectionProps {
 
 export const FreshersPartySection: React.FC<FreshersPartySectionProps> = ({ onRSVP }) => {
   const { partyDetails } = EVENT_CONFIG;
+  const sectionRef = useRef<HTMLDivElement>(null);
+  const hasAnimatedRef = useRef(false);
 
-  const triggerPartyConfetti = () => {
-    feedback.vibratePattern([20, 30, 20]);
+  const firePartyCrackers = () => {
+    feedback.vibratePattern([25, 40, 25]);
     feedback.playCelebrationChime();
+
+    // Left cannon cracker burst
     confetti({
-      particleCount: 50,
-      spread: 80,
-      origin: { y: 0.7 },
-      colors: ['#a855f7', '#ec4899', '#3b82f6', '#38bdf8', '#ffffff'],
+      particleCount: 45,
+      angle: 60,
+      spread: 60,
+      origin: { x: 0.05, y: 0.75 },
+      colors: ['#ec4899', '#a855f7', '#38bdf8', '#fbbf24', '#ffffff'],
     });
+
+    // Right cannon cracker burst
+    confetti({
+      particleCount: 45,
+      angle: 120,
+      spread: 60,
+      origin: { x: 0.95, y: 0.75 },
+      colors: ['#ec4899', '#a855f7', '#38bdf8', '#fbbf24', '#ffffff'],
+    });
+
+    // Center starburst slightly delayed
+    setTimeout(() => {
+      confetti({
+        particleCount: 55,
+        spread: 100,
+        origin: { x: 0.5, y: 0.65 },
+        colors: ['#f43f5e', '#ec4899', '#c084fc', '#818cf8', '#38bdf8', '#fde047'],
+        shapes: ['circle', 'square'],
+      });
+    }, 200);
+  };
+
+  useEffect(() => {
+    let timeoutId: ReturnType<typeof setTimeout>;
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            if (!hasAnimatedRef.current) {
+              hasAnimatedRef.current = true;
+              firePartyCrackers();
+            }
+          } else {
+            // Reset after being scrolled away for 4 seconds so it can re-trigger on re-visit
+            clearTimeout(timeoutId);
+            timeoutId = setTimeout(() => {
+              hasAnimatedRef.current = false;
+            }, 4000);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    if (sectionRef.current) {
+      observer.observe(sectionRef.current);
+    }
+
+    return () => {
+      clearTimeout(timeoutId);
+      observer.disconnect();
+    };
+  }, []);
+
+  const handlePartyButtonClick = () => {
+    firePartyCrackers();
     onRSVP();
   };
 
   return (
-    <section id="party" className="py-12 px-4 max-w-5xl mx-auto scroll-mt-16">
-      
+    <section 
+      id="party" 
+      ref={sectionRef}
+      className="py-12 px-4 max-w-5xl mx-auto scroll-mt-16"
+    >
       {/* Container with Party Neon Aesthetic */}
       <div className="relative rounded-3xl bg-gradient-to-br from-[#1a083d] via-[#0d0926] to-[#120524] border-2 border-purple-500/40 p-6 sm:p-10 shadow-[0_0_60px_rgba(168,85,247,0.25)] overflow-hidden">
         
@@ -47,10 +112,11 @@ export const FreshersPartySection: React.FC<FreshersPartySectionProps> = ({ onRS
           aria-hidden="true" 
         />
 
-        {/* Section Pill */}
+        {/* Section Pill with party cracker icons */}
         <div className="flex items-center justify-center sm:justify-start space-x-2 mb-3">
           <span className="inline-flex items-center space-x-1.5 px-3.5 py-1 rounded-full bg-purple-500/20 border border-purple-400/40 text-purple-300 text-xs font-bold uppercase tracking-wider shadow-[0_0_15px_rgba(168,85,247,0.3)]">
-            <Crown className="w-3.5 h-3.5 text-pink-400 animate-bounce" />
+            <PartyPopper className="w-3.5 h-3.5 text-pink-400 animate-bounce" />
+            <Crown className="w-3.5 h-3.5 text-amber-300" />
             <span>THE CLIMAX OF FRESHER'S WEEK</span>
           </span>
         </div>
@@ -71,25 +137,26 @@ export const FreshersPartySection: React.FC<FreshersPartySectionProps> = ({ onRS
         {/* Key Event Details Grid */}
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3 my-6">
           
+          {/* Date & Timing Card — "Report by" removed */}
           <div className="p-3.5 rounded-2xl bg-purple-950/60 border border-purple-500/30 flex items-start space-x-3">
             <Clock className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
             <div>
               <span className="text-[10px] uppercase font-bold text-purple-300 block">Date & Timing</span>
               <span className="text-xs font-bold text-white block">{partyDetails.date}</span>
               <span className="text-[11px] text-slate-300">{partyDetails.timing}</span>
-              <span className="text-[10px] text-pink-300 font-medium block mt-0.5">Report by: {partyDetails.reportingTime}</span>
             </div>
           </div>
 
+          {/* Venue Location Card — "Auditorium & Grand Lawn" removed */}
           <div className="p-3.5 rounded-2xl bg-purple-950/60 border border-purple-500/30 flex items-start space-x-3">
             <MapPin className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
             <div>
               <span className="text-[10px] uppercase font-bold text-purple-300 block">Venue Location</span>
               <span className="text-xs font-bold text-white block">{partyDetails.venue}</span>
-              <span className="text-[11px] text-slate-300">Auditorium & Grand Lawn</span>
             </div>
           </div>
 
+          {/* Dress Code Card */}
           <div className="p-3.5 rounded-2xl bg-purple-950/60 border border-purple-500/30 flex items-start space-x-3">
             <Shirt className="w-5 h-5 text-pink-400 shrink-0 mt-0.5" />
             <div>
@@ -126,10 +193,10 @@ export const FreshersPartySection: React.FC<FreshersPartySectionProps> = ({ onRS
           </div>
 
           <button
-            onClick={triggerPartyConfetti}
+            onClick={handlePartyButtonClick}
             className="w-full sm:w-auto px-7 py-3.5 rounded-2xl bg-gradient-to-r from-pink-600 via-purple-600 to-indigo-600 hover:from-pink-500 hover:to-indigo-500 text-white font-bold text-sm tracking-wide shadow-[0_0_30px_rgba(236,72,153,0.5)] border border-pink-400/40 active:scale-95 transition-all cursor-pointer flex items-center justify-center space-x-2"
           >
-            <PartyPopper className="w-4 h-4" />
+            <PartyPopper className="w-4 h-4 animate-bounce" />
             <span>COUNT ME IN FOR THE PARTY</span>
           </button>
         </div>
