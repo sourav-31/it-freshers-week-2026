@@ -72,21 +72,16 @@ export const EVENT_CONFIG = {
   weekCountdownHeading: 'THE COUNTDOWN TO THE WEEK BEGINS!',
   weekCountdownSubtitle: 'Your most unforgettable college memories are just around the corner.',
 
-  // COUNTDOWN 2: FRESHERS' PARTY
-  // Target: 16 November 2026, 05:00 PM IST
-  partyTargetISO: '2026-11-16T17:00:00+05:30',
-  partyCountdownHeading: "THE GRAND FRESHERS' PARTY COUNTDOWN",
-  partyCountdownSubtitle: 'The grand finale celebration awaits you. Glitz, glamour, DJ and memories.',
-  
+
   // Special Freshers' Party Section Details
   partyDetails: {
     title: "NEON NIGHTS: THE GRAND FRESHERS' PARTY 2026",
     tagline: 'Music • Crowning • Dinner • Unlimited Memories',
-    date: '16 November 2026 (Monday)',
-    timing: 'To Be Announced Soon',
-    reportingTime: 'To Be Announced Soon',
-    venue: 'To Be Announced Soon',
-    dressCode: 'To Be Announced Soon',
+    date: 'Will be announced soon',
+    timing: 'Will be announced soon',
+    reportingTime: 'Will be announced soon',
+    venue: 'Will be announced soon',
+    dressCode: 'Will be announced soon',
     description: "The monumental climax of Freshers' Week! Step onto the red carpet for an evening of sensational student performances, the prestigious crowning of Mr. & Ms. Fresher 2026, a high-octane DJ celebration with stunning laser visuals, and a lavish celebratory dinner.",
     highlights: [
       'Red Carpet Photo Booths & 360 Video Booth',

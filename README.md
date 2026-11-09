@@ -23,15 +23,13 @@ A premium, modern, fully responsive mobile-first event website for **Information
    - Subtitle: *"Get ready for a week filled with friendship, challenges, fun and unforgettable memories."*
    - CTA Buttons: **EXPLORE THE WEEK** (smooth scroll) & **COUNT ME IN** (interactive celebration RSVP modal).
 
-2. **TWO Dynamic Real-Time Countdowns (Independent):**
+2. **Freshers' Week Real-Time Countdown:**
    - **Countdown 1: FRESHER'S WEEK (Highest Visual Priority):**
      - Target: `11 November 2026, 09:30 AM IST (Asia/Kolkata)`
      - Displays: Days, Hours, Minutes, Seconds with live pulse.
      - Headline: *"THE COUNTDOWN TO THE WEEK BEGINS!"*
      - Reaches zero state: *"IT'S TIME! LET THE CELEBRATION BEGIN!"*
-   - **Countdown 2: THE GRAND FRESHERS' PARTY:**
-     - Target: `16 November 2026, 05:00 PM IST (Asia/Kolkata)`
-     - Displays: Days, Hours, Minutes, Seconds with party-themed styling.
+   - Grand finale date and countdown: *"Will be announced soon"*.
 
 3. **6-Day Event Lineup & Interactive Modals:**
    - Staggered timeline and individual cards for all 6 days:
@@ -55,7 +53,7 @@ A premium, modern, fully responsive mobile-first event website for **Information
    - **Web Audio Sound Effects:** Synthesizes clicks, modal tones, and celebration arpeggios on the fly (permanently enabled, zero external audio asset dependencies).
 
 5. **Special Freshers' Party Section:**
-   - Party date, timing, venue, and highlights bento grid: Red Carpet, Crowning of Mr. & Ms. Fresher 2026, Live DJ Beats, and Celebratory Dinner.
+   - Party date, timing, and venue: *"Will be announced soon"*. Highlights include Red Carpet, Crowning of Mr. & Ms. Fresher 2026, Live DJ Beats, and Celebratory Dinner.
 
 6. **About Section:**
    - *"MORE THAN JUST A WEEK. IT'S THE BEGINNING OF SOMETHING BIG."*

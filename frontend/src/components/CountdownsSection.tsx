@@ -51,14 +51,9 @@ export const CountdownsSection: React.FC = () => {
     calculateTime(EVENT_CONFIG.weekTargetISO, 144) // 6 days
   );
 
-  const [partyTime, setPartyTime] = useState<TimeCalculated>(() =>
-    calculateTime(EVENT_CONFIG.partyTargetISO, 8)
-  );
-
   useEffect(() => {
     const interval = setInterval(() => {
       setWeekTime(calculateTime(EVENT_CONFIG.weekTargetISO, 144));
-      setPartyTime(calculateTime(EVENT_CONFIG.partyTargetISO, 8));
     }, 1000);
 
     return () => clearInterval(interval);
@@ -200,64 +195,20 @@ export const CountdownsSection: React.FC = () => {
               <span>THE GRAND FINALE</span>
             </div>
             <h3 className="font-outfit font-black text-xl sm:text-2xl text-white uppercase tracking-tight">
-              {EVENT_CONFIG.partyCountdownHeading}
+              {EVENT_CONFIG.partyDetails.title}
             </h3>
             <p className="text-xs text-purple-200/80 mt-1">
-              {EVENT_CONFIG.partyCountdownSubtitle}
+              {EVENT_CONFIG.partyDetails.tagline}
             </p>
           </div>
 
-          {/* Party Countdown 4 Dials */}
-          {partyTime.isLive ? (
-            <div className="p-3.5 rounded-xl bg-purple-900/50 border border-purple-400 text-center animate-pulse">
-              <span className="font-bold text-sm text-purple-200">
-                🎉 THE PARTY IS HAPPENING NOW!
-              </span>
-            </div>
-          ) : (
-            <div className="grid grid-cols-4 gap-2 text-center w-full sm:w-auto">
-              <div className="p-2 sm:p-3 rounded-xl bg-purple-950/70 border border-purple-500/30 min-w-[55px] sm:min-w-[65px]">
-                <span className="font-space font-extrabold text-lg sm:text-2xl text-purple-200 block">
-                  {formatDigit(partyTime.days)}
-                </span>
-                <span className="text-[9px] font-semibold text-purple-400/80 uppercase">
-                  DAYS
-                </span>
-              </div>
-
-              <div className="p-2 sm:p-3 rounded-xl bg-purple-950/70 border border-purple-500/30 min-w-[55px] sm:min-w-[65px]">
-                <span className="font-space font-extrabold text-lg sm:text-2xl text-purple-200 block">
-                  {formatDigit(partyTime.hours)}
-                </span>
-                <span className="text-[9px] font-semibold text-purple-400/80 uppercase">
-                  HOURS
-                </span>
-              </div>
-
-              <div className="p-2 sm:p-3 rounded-xl bg-purple-950/70 border border-purple-500/30 min-w-[55px] sm:min-w-[65px]">
-                <span className="font-space font-extrabold text-lg sm:text-2xl text-purple-200 block">
-                  {formatDigit(partyTime.minutes)}
-                </span>
-                <span className="text-[9px] font-semibold text-purple-400/80 uppercase">
-                  MINS
-                </span>
-              </div>
-
-              <div className="p-2 sm:p-3 rounded-xl bg-purple-950/70 border border-pink-500/40 min-w-[55px] sm:min-w-[65px]">
-                <span className="font-space font-extrabold text-lg sm:text-2xl text-pink-300 block animate-pulse">
-                  {formatDigit(partyTime.seconds)}
-                </span>
-                <span className="text-[9px] font-semibold text-pink-400/80 uppercase">
-                  SECS
-                </span>
-              </div>
-            </div>
-          )}
+          <p className="rounded-xl bg-purple-950/70 border border-purple-500/30 px-5 py-4 text-center text-sm font-bold text-purple-200">
+            Will be announced soon
+          </p>
 
         </div>
 
         <div className="mt-3 pt-2.5 border-t border-purple-900/40 text-[11px] text-purple-300/70 text-center sm:text-left flex items-center justify-between">
-          <span>Party Date: <strong>16 Nov 2026, 09:00 AM IST</strong></span>
           <span className="hidden sm:inline">DJ Beats • Crowning • Dinner</span>
         </div>
       </div>
