@@ -136,4 +136,4 @@ npm run build
 
 ---
 
-*Made with ❤️ by the IT Branch, Chattisgarh Institute of Technology (CIT), Bilaspur.*
+*Made with ❤️ by the IT Branch, CGIT Bilaspur.*

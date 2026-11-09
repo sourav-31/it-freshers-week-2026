@@ -34,7 +34,7 @@ export const Footer: React.FC = () => {
             {EVENT_CONFIG.department}
           </p>
           <p className="text-[11px] text-slate-400 mt-0.5">
-            Chattisgarh Institute of Technology, Bilaspur
+            CGIT Bilaspur
           </p>
         </div>
 

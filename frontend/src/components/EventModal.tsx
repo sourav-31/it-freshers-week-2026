@@ -49,11 +49,11 @@ export const EventModal: React.FC<EventModalProps> = ({ event, onClose }) => {
     feedback.playClickSound();
     const icsData = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//CIT Bilaspur//IT Freshers Week 2026//EN
+PRODID:-//CGIT Bilaspur//IT Freshers Week 2026//EN
 BEGIN:VEVENT
 SUMMARY:IT Freshers' Week 2026: ${event.name}
 DESCRIPTION:${event.theme} | Dress: ${event.dressCode}
-LOCATION:CIT Bilaspur
+LOCATION:CGIT Bilaspur
 STATUS:TENTATIVE
 END:VEVENT
 END:VCALENDAR`;

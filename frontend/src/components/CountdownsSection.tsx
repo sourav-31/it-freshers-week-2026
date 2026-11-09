@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { Clock, Sparkles, PartyPopper, Flame } from 'lucide-react';
+import { Sparkles, PartyPopper, Flame } from 'lucide-react';
 import confetti from 'canvas-confetti';
 import { EVENT_CONFIG } from '../data/eventConfig';
 import { feedback } from '../utils/feedback';
@@ -47,11 +47,11 @@ export const CountdownsSection: React.FC = () => {
     }
   };
 
-  const [weekTime, setWeekTime] = useState<TimeCalculated>(() => 
+  const [weekTime, setWeekTime] = useState<TimeCalculated>(() =>
     calculateTime(EVENT_CONFIG.weekTargetISO, 144) // 6 days
   );
 
-  const [partyTime, setPartyTime] = useState<TimeCalculated>(() => 
+  const [partyTime, setPartyTime] = useState<TimeCalculated>(() =>
     calculateTime(EVENT_CONFIG.partyTargetISO, 8)
   );
 
@@ -79,20 +79,20 @@ export const CountdownsSection: React.FC = () => {
 
   return (
     <section id="countdown" className="py-10 px-4 max-w-5xl mx-auto scroll-mt-16">
-      
+
       {/* =========================================================================
           COUNTDOWN 1: FRESHERS' WEEK (HIGHEST VISUAL PRIORITY)
          ========================================================================= */}
       <div className="relative p-6 sm:p-10 rounded-3xl glass-card border-2 border-blue-500/40 shadow-[0_0_50px_rgba(37,99,235,0.25)] overflow-hidden mb-8">
-        
+
         {/* Background Gradient Lights */}
-        <div 
-          className="absolute -top-24 -right-24 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl pointer-events-none" 
-          aria-hidden="true" 
+        <div
+          className="absolute -top-24 -right-24 w-72 h-72 bg-blue-600/20 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
         />
-        <div 
-          className="absolute -bottom-24 -left-24 w-72 h-72 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none" 
-          aria-hidden="true" 
+        <div
+          className="absolute -bottom-24 -left-24 w-72 h-72 bg-cyan-500/15 rounded-full blur-3xl pointer-events-none"
+          aria-hidden="true"
         />
 
         {/* Priority Badge */}
@@ -174,13 +174,8 @@ export const CountdownsSection: React.FC = () => {
           </div>
         )}
 
-        {/* Target Details Footer */}
-        <div className="mt-6 pt-4 border-t border-blue-500/20 flex flex-col sm:flex-row items-center justify-between text-xs text-blue-300/80 gap-2">
-          <div className="flex items-center space-x-1.5">
-            <Clock className="w-4 h-4 text-cyan-400" />
-            <span>Target Kickoff: <strong>11 Nov 2026, 09:30 AM IST (Asia/Kolkata)</strong></span>
-          </div>
-
+        {/* Footer / Hype Button */}
+        <div className="mt-6 pt-4 border-t border-blue-500/20 flex items-center justify-center text-xs">
           <button
             onClick={triggerCelebration}
             className="flex items-center space-x-1 text-cyan-300 hover:text-white font-semibold underline underline-offset-4 cursor-pointer"
@@ -195,9 +190,9 @@ export const CountdownsSection: React.FC = () => {
           COUNTDOWN 2: FRESHERS' PARTY (Visually Distinct & Party Themed)
          ========================================================================= */}
       <div className="relative p-5 sm:p-7 rounded-3xl bg-gradient-to-br from-[#160b33]/85 via-[#0d0926]/90 to-[#12072e]/90 border border-purple-500/30 shadow-[0_0_35px_rgba(139,92,246,0.2)] overflow-hidden">
-        
+
         <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
-          
+
           {/* Party Info Left Column */}
           <div className="text-center sm:text-left max-w-sm">
             <div className="inline-flex items-center space-x-1.5 px-3 py-0.5 rounded-full bg-purple-500/20 text-purple-300 border border-purple-400/30 text-[11px] font-bold uppercase tracking-wider mb-2">
@@ -262,7 +257,7 @@ export const CountdownsSection: React.FC = () => {
         </div>
 
         <div className="mt-3 pt-2.5 border-t border-purple-900/40 text-[11px] text-purple-300/70 text-center sm:text-left flex items-center justify-between">
-          <span>Party Date: <strong>16 Nov 2026, 05:00 PM IST</strong></span>
+          <span>Party Date: <strong>16 Nov 2026, 09:00 AM IST</strong></span>
           <span className="hidden sm:inline">DJ Beats • Crowning • Dinner</span>
         </div>
       </div>

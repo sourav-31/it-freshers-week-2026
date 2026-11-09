@@ -138,13 +138,13 @@ export const ContactSection: React.FC = () => {
           <span>FESTIVAL VENUE</span>
         </div>
         <h4 className="font-outfit font-bold text-base sm:text-lg text-white">
-          Chattisgarh Institute of Technology (CIT), Bilaspur
+          CGIT Bilaspur
         </h4>
         <p className="text-xs text-slate-300/80 mt-0.5">
           Department of Information Technology & Central Campus • Bilaspur, Chhattisgarh
         </p>
         <a
-          href="https://maps.google.com/?q=Chattisgarh+Institute+of+Technology+Bilaspur"
+          href="https://maps.google.com/?q=CGIT+Bilaspur"
           target="_blank"
           rel="noopener noreferrer"
           className="inline-block mt-3 px-4 py-1.5 rounded-xl bg-blue-600/30 hover:bg-blue-600/50 text-cyan-200 text-xs font-semibold border border-blue-400/30 transition-all"

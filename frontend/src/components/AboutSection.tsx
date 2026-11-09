@@ -78,7 +78,7 @@ export const AboutSection: React.FC = () => {
 
         <div className="shrink-0">
           <span className="text-[11px] font-mono text-cyan-300 bg-blue-900/50 px-3 py-1 rounded-full border border-blue-400/30">
-            CIT Bilaspur • IT Dept
+            CGIT Bilaspur • IT Dept
           </span>
         </div>
       </div>

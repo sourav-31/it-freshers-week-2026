@@ -83,7 +83,7 @@ export const Hero: React.FC<HeroProps> = ({ onExploreWeek, onCountMeIn }) => {
         <span className="text-blue-500">•</span>
         <span className="text-xs sm:text-sm font-medium text-blue-300 flex items-center space-x-1">
           <Flame className="w-3.5 h-3.5 text-amber-400" />
-          <span>CIT Bilaspur</span>
+          <span>CGIT Bilaspur</span>
         </span>
       </div>
 

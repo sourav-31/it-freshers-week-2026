@@ -56,11 +56,11 @@ export const RSVPModal: React.FC<RSVPModalProps> = ({ isOpen, onClose }) => {
     feedback.playClickSound();
     const icsData = `BEGIN:VCALENDAR
 VERSION:2.0
-PRODID:-//CIT Bilaspur//IT Freshers Week 2026//EN
+PRODID:-//CGIT Bilaspur//IT Freshers Week 2026//EN
 BEGIN:VEVENT
 SUMMARY:IT Freshers' Week 2026 (Nov 11 - 16)
 DESCRIPTION:The official 6-day Freshers' Week and Grand Freshers' Party hosted by IT Branch Seniors!
-LOCATION:Chattisgarh Institute of Technology, Bilaspur
+LOCATION:CGIT Bilaspur
 DTSTART:20261111T040000Z
 DTEND:20261116T170000Z
 STATUS:CONFIRMED
